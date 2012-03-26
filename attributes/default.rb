@@ -20,18 +20,18 @@
 case platform
 when "ubuntu"
   if platform_version.to_f >= 9.04
-    set[:ucspi][:bin_dir] = "/usr/bin"
+    set['ucspi']['bin_dir'] = "/usr/bin"
   else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
+    set['ucspi']['bin_dir'] = "/usr/local/bin"
   end 
 when "debian"
   if platform_version.to_f >= 5.0
-    set[:ucspi][:bin_dir] = "/usr/bin"
+    set['ucspi']['bin_dir'] = "/usr/bin"
   else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
+    set['ucspi']['bin_dir'] = "/usr/local/bin"
   end 
 when "arch"
-  set[:ucspi][:bin_dir] = "/usr/bin"
+  set['ucspi']['bin_dir'] = "/usr/bin"
 else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
+    set['ucspi']['bin_dir'] = "/usr/local/bin"
 end

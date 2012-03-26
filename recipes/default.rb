@@ -52,8 +52,8 @@ when "source"
     (cd /tmp/ucspi-tcp-0.88; perl -pi -e 's/extern int errno;/\#include <errno.h>/' error.h)
     (cd /tmp/ucspi-tcp-0.88; make setup check)
     EOH
-    not_if { ::File.exists?("#{node[:ucspi][:bin_dir]}/tcpserver") }
+    not_if { ::File.exists?("#{node['ucspi']['bin_dir']}/tcpserver") }
   end
 else
-  Chef::Log.info("Could not find an installation method for platform #{node[:platform]}, version #{node[:platform_version]}")
+  Chef::Log.info("Could not find an installation method for platform #{node['platform']}, version #{node['platform_version']}")
 end
