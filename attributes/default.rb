@@ -30,8 +30,8 @@ when "debian"
   else
     set[:ucspi][:bin_dir] = "/usr/local/bin"
   end 
-when "arch"
+when "arch", "gentoo"
   set[:ucspi][:bin_dir] = "/usr/bin"
 else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
+  set[:ucspi][:bin_dir] = "/usr/local/bin"
 end

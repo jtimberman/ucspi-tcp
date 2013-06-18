@@ -1,7 +1,7 @@
 Description
 ===========
 
-Installs DJB's ucspi-tcp software.
+Installs [DJB's ucspi-tcp](http://cr.yp.to/ucspi-tcp.html) software.
 
 Requirements
 ============
