@@ -30,12 +30,18 @@ installation_method = value_for_platform(
       "8.04" => "source",
       "default" => "package"
     },
+    "gentoo"  => { "default" => "package" },
     "default" => { "default" => "source" }
 )
 
 case installation_method
 when "package"
-  package "ucspi-tcp" do
+  pkg_name = value_for_platform(
+    "gentoo"  => { "default" => "sys-apps/ucspi-tcp" },
+    "default" => { "default" => "ucspi-tcp" }
+  )
+
+  package pkg_name do
     action :install
   end
 when "aur"
