@@ -23,13 +23,13 @@ when "ubuntu"
     set[:ucspi][:bin_dir] = "/usr/bin"
   else
     set[:ucspi][:bin_dir] = "/usr/local/bin"
-  end 
+  end
 when "debian"
   if platform_version.to_f >= 5.0
     set[:ucspi][:bin_dir] = "/usr/bin"
   else
     set[:ucspi][:bin_dir] = "/usr/local/bin"
-  end 
+  end
 when "arch", "gentoo"
   set[:ucspi][:bin_dir] = "/usr/bin"
 else
