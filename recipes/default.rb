@@ -40,6 +40,8 @@ when "package"
     "gentoo"  => { "default" => "sys-apps/ucspi-tcp" },
     "default" => { "default" => "ucspi-tcp" }
   )
+  # Compatibility with Chef 11.
+  pkg_name = pkg_name["default"] if pkg_name.is_a?(Hash)
 
   package pkg_name do
     action :install
