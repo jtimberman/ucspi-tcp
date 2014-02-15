@@ -38,7 +38,7 @@ case installation_method
 when "package"
   pkg_name = value_for_platform(
     "gentoo"  => { "default" => "sys-apps/ucspi-tcp" },
-    "default" => { "default" => "ucspi-tcp" }
+    "default" => "ucspi-tcp"
   )
 
   package pkg_name do
