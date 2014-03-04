@@ -39,7 +39,12 @@ when "package"
   pkg_name = value_for_platform(
     "gentoo"  => "sys-apps/ucspi-tcp",
     "default" => "ucspi-tcp"
+  # "gentoo"  => { "default" => "sys-apps/ucspi-tcp" },
+  # "gentoo"  => { "default" => "sys-apps/ucspi-tcp" },
+  # "default" => { "default" => "ucspi-tcp" }
   )
+  # Foobar fix for chef 11
+  #pkg_name = pkg_name["default"] if pkg_name.is_a?(Hash)
 
   package pkg_name do
     action :install
