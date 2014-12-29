@@ -2,6 +2,16 @@ ucspi-tcp Cookbook CHANGELOG
 =======================
 This file is used to list changes made in each version of the ucspi-tcp cookbook.
 
+v1.2.0
+------
+
+### New Feature
+
+- Add support for RHEL platforms
+
+### Bug Fixes
+
+- Addresses multiple issues/pull requests regarding `value_for_platform` (#3, #4, #5, #6, #7, #8, #9, #11)
 
 v1.1.0
 ------
