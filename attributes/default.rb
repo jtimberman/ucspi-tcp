@@ -17,21 +17,25 @@
 # limitations under the License.
 #
 
-case platform
-when "ubuntu"
-  if platform_version.to_f >= 9.04
-    set[:ucspi][:bin_dir] = "/usr/bin"
-  else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
-  end
-when "debian"
-  if platform_version.to_f >= 5.0
-    set[:ucspi][:bin_dir] = "/usr/bin"
-  else
-    set[:ucspi][:bin_dir] = "/usr/local/bin"
-  end
-when "arch", "gentoo"
-  set[:ucspi][:bin_dir] = "/usr/bin"
-else
-  set[:ucspi][:bin_dir] = "/usr/local/bin"
+default['ucspi']['install_method'] = 'package'
+default['ucspi']['bin_dir'] = '/usr/bin'
+
+# We don't have a reasonable way to test Ubuntu < 9.04, or Debian <
+# 5.0 at this point in time, and this is a best effort to maintain
+# compatibility for those platforms
+if platform?('ubuntu') && node['platform_version'].to_f < 9.04
+  default['ucspi']['install_method'] = 'source'
+end
+
+if platform?('debian') && node['platform_version'].to_f < 5.0
+  default['ucspi']['install_method'] = 'source'
+end
+
+default['ucspi']['install_method'] = 'source' if platform_family?('rhel')
+default['ucspi']['install_method'] = 'aur' if platform_family?('arch')
+
+# We don't support relocatable source installation, and `/usr/local`
+# is the default PREFIX.
+if node['ucspi']['install_method'] == 'source'
+  default['ucspi']['bin_dir'] = '/usr/local/bin'
 end

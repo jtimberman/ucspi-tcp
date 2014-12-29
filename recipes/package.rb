@@ -1,14 +1,13 @@
 #
-# Cookbook Name:: ucspi-tcp
-# Recipe:: default
-#
+# Author:: Joshua Timberman <joshua@chef.io>
+# Copyright 2014, Chef Software, Inc. <legal@chef.io>
 # Copyright 2010, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     http://www.apache.org/licenses/LICENSE-2.0
+#    http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,4 +16,6 @@
 # limitations under the License.
 #
 
-include_recipe "ucspi-tcp::#{node['ucspi']['install_method']}"
+package 'ucspi-tcp' do
+  package_name 'sys-apps/ucspi-tcp' if platform_family?('gentoo')
+end
