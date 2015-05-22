@@ -20,14 +20,24 @@
 
 include_recipe 'build-essential'
 
-bash 'install_ucspi' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-  (cd /tmp; wget http://cr.yp.to/ucspi-tcp/ucspi-tcp-0.88.tar.gz)
-  (cd /tmp; tar zxvf ucspi-tcp-0.88.tar.gz)
-  (cd /tmp/ucspi-tcp-0.88; perl -pi -e 's/extern int errno;/\#include <errno.h>/' error.h)
-  (cd /tmp/ucspi-tcp-0.88; make setup check)
-  EOH
+
+ucspi_file_name = node['ucspi']['source_url'].split('/').last
+remote_file ::File.join(Chef::Config[:file_cache_path],ucspi_file_name) do
+  source node['ucspi']['source_url']
+  notifies :run, 'bash[install_ucspi]', :immediately
   not_if { ::File.exist?("#{node['ucspi']['bin_dir']}/tcpserver") }
+end
+
+bash 'install_ucspi' do
+  action :nothing
+  user 'root'
+  cwd Chef::Config[:file_cache_path]
+  code <<-EOH
+  rm -rf ucspi-tcp
+  mkdir ucspi-tcp
+  tar zxvf #{ucspi_file_name} -C ucspi-tcp --strip-components 1
+  cd ucspi-tcp
+  perl -pi -e 's/extern int errno;/\#include <errno.h>/' error.h
+  make setup check
+  EOH
 end
