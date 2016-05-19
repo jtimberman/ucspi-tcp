@@ -10,10 +10,10 @@ recipe 'ucspi-tcp::aur', 'Installs ucspi-tcp via AUR (Arch User Repository)'
 recipe 'ucspi-tcp::package', 'Installs ucspi-tcp via distribution-provided package'
 recipe 'ucspi-tcp::source', 'Installs ucspi-tcp via compiled source'
 
-%w{ build-essential pacman }.each do |cb|
+%w( build-essential pacman ).each do |cb|
   depends cb
 end
 
-%w{ ubuntu debian centos rhel arch }.each do |os|
+%w( ubuntu debian centos rhel arch ).each do |os|
   supports os
 end

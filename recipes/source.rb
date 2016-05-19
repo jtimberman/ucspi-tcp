@@ -20,9 +20,8 @@
 
 include_recipe 'build-essential'
 
-
 ucspi_file_name = node['ucspi']['source_url'].split('/').last
-remote_file ::File.join(Chef::Config[:file_cache_path],ucspi_file_name) do
+remote_file ::File.join(Chef::Config[:file_cache_path], ucspi_file_name) do
   source node['ucspi']['source_url']
   notifies :run, 'bash[install_ucspi]', :immediately
   not_if { ::File.exist?("#{node['ucspi']['bin_dir']}/tcpserver") }
