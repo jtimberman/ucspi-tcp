@@ -3,7 +3,7 @@
 # Recipe:: source
 #
 # Author:: Joshua Timberman <joshua@chef.io>
-# Copyright:: Copyright (c) 2014, Chef Software, Inc. <legal@chef.io>
+# Copyright:: Copyright (c) 2014-2016, Chef Software, Inc. <legal@chef.io>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
