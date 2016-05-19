@@ -8,26 +8,25 @@ Installs [DJB's ucspi-tcp](http://cr.yp.to/ucspi-tcp.html) software.
 
 The following platforms are supported, and tested via Test Kitchen.
 
-* Ubuntu 10.04, 12.04, 14.04
-* Debian 7.6
-* CentOS 5.10, 6.5
+- Ubuntu / Debian
+- RHEL / Fedora
 
 This cookbook may work on other versions of these platform / platform families with or without modification.
 
 The following platforms are supported on a best effort basis.
 
-* ArchLinux
-* Gentoo
+- ArchLinux
+- Gentoo
 
 ## Cookbooks
 
-* build-essential: for source recipe
-* pacman: for AUR installation on ArchLinux
+- build-essential: for source recipe
+- pacman: for AUR installation on ArchLinux
 
 # Attributes
 
-* `node['ucspi']['install_method']`: the method of installation, which tells the default recipe which recipe to load. default is `package` for most platforms, and `source` for RHEL. It is `aur` for ArchLinux as Arch doesn't have ucspi-tcp package in the default repositories. See __Usage__ below.
-* `node['ucspi']['bin_dir']`: location of the installed binaries. the default is `/usr/bin` for package and aur install methods, and `/usr/local/bin` for source installs.
+- `node['ucspi']['install_method']`: the method of installation, which tells the default recipe which recipe to load. default is `package` for most platforms, and `source` for RHEL. It is `aur` for ArchLinux as Arch doesn't have ucspi-tcp package in the default repositories. See **Usage** below.
+- `node['ucspi']['bin_dir']`: location of the installed binaries. the default is `/usr/bin` for package and aur install methods, and `/usr/local/bin` for source installs.
 
 # Usage
 
@@ -41,19 +40,18 @@ If you have an internal package of `ucspi-tcp` for RHEL and wish to use that, th
 
 Please [report bugs](https://github.com/jtimberman/ucspi-tcp) with this cookbook. Include the following information:
 
-* Chef version (`chef-client --version`)
-* Platform and platform version (`ohai platform` and `ohai platform_version`)
-* Version of this cookbook used
-* Output of the error, and Chef stacktrace
-* Steps to reproduce
+- Chef version (`chef-client --version`)
+- Platform and platform version (`ohai platform` and `ohai platform_version`)
+- Version of this cookbook used
+- Output of the error, and Chef stacktrace
+- Steps to reproduce
 
 # License & Authors
 
-- Author: Joshua Timberman (<joshua@chef.io>)
+- Author: Joshua Timberman ([joshua@chef.io](mailto:joshua@chef.io))
 
 ```text
-Copyright 2010-2012, Opscode, Inc.
-Copyright 2014, Chef Software, Inc. <legal@chef.io>
+Copyright 2010-2016, Chef Software, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
