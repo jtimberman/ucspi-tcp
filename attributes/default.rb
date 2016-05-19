@@ -39,3 +39,5 @@ default['ucspi']['install_method'] = 'aur' if platform_family?('arch')
 if node['ucspi']['install_method'] == 'source'
   default['ucspi']['bin_dir'] = '/usr/local/bin'
 end
+
+default['ucspi']['source_url'] = 'http://cr.yp.to/ucspi-tcp/ucspi-tcp-0.88.tar.gz'

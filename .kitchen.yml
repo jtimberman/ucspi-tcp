@@ -18,11 +18,11 @@ platforms:
 
 suites:
   - name: default
+    # don't retest centos, it's a source install by default
+    excludes: [centos-6.5, centos-5.10]
     run_list:
       - recipe[ucspi-tcp::default]
   - name: source
-    # don't retest centos, it's a source install by default
-    excludes: [centos-6.5, centos-5.10]
     run_list:
       - recipe[ucspi-tcp::default]
     attributes:
