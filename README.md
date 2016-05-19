@@ -2,9 +2,9 @@
 
 Installs [DJB's ucspi-tcp](http://cr.yp.to/ucspi-tcp.html) software.
 
-# Requirements
+## Requirements
 
-## Platform
+### Platforms
 
 The following platforms are supported, and tested via Test Kitchen.
 
@@ -18,25 +18,30 @@ The following platforms are supported on a best effort basis.
 - ArchLinux
 - Gentoo
 
-## Cookbooks
+
+### Chef
+
+- Chef 11+
+
+### Cookbooks
 
 - build-essential: for source recipe
 - pacman: for AUR installation on ArchLinux
 
-# Attributes
+## Attributes
 
 - `node['ucspi']['install_method']`: the method of installation, which tells the default recipe which recipe to load. default is `package` for most platforms, and `source` for RHEL. It is `aur` for ArchLinux as Arch doesn't have ucspi-tcp package in the default repositories. See **Usage** below.
 - `node['ucspi']['bin_dir']`: location of the installed binaries. the default is `/usr/bin` for package and aur install methods, and `/usr/local/bin` for source installs.
 
-# Usage
+## Usage
 
 Include the ucspi-tcp recipe in the run list. The installation method will automatically be selected based on what we consider to be sane defaults.
 
-## Installing from Package on RHEL
+### Installing from Package on RHEL
 
 If you have an internal package of `ucspi-tcp` for RHEL and wish to use that, then either specifically use the `package` recipe, or set the `install_method` attribute to `package` for your node/role/environment.
 
-# Bugs
+## Bugs
 
 Please [report bugs](https://github.com/jtimberman/ucspi-tcp) with this cookbook. Include the following information:
 
@@ -46,7 +51,7 @@ Please [report bugs](https://github.com/jtimberman/ucspi-tcp) with this cookbook
 - Output of the error, and Chef stacktrace
 - Steps to reproduce
 
-# License & Authors
+## License & Authors
 
 - Author: Joshua Timberman ([joshua@chef.io](mailto:joshua@chef.io))
 
